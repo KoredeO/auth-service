@@ -5,6 +5,13 @@ import { MailerService } from '@nestjs-modules/mailer';
 export class MailService {
   constructor(private mailerService: MailerService) {}
 
+  async sendEmail(options: { to: string; subject: string; text: string }) {
+    await this.mailerService.sendMail({
+      ...options,
+      html: options.text,
+    });
+  }
+
   async sendVerificationEmail(email: string, token: string) {
     const verificationLink = `http://localhost:3000/auth/verify-email?token=${token}`;
 

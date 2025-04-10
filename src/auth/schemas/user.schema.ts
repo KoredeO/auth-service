@@ -33,6 +33,15 @@ export class User {
 
   @Prop()
   verificationTokenExpires?: Date;
+
+  @Prop()
+  twoFactorSecret?: string;
+
+  @Prop({ default: false })
+  twoFactorEnabled: boolean;
+
+  @Prop([String])
+  backupCodes?: string[];
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

@@ -19,7 +19,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
       clientSecret,
       callbackURL,
       scope: ['email', 'profile'],
-      passReqToCallback: true,
+      passReqToCallback: true
     });
   }
 
